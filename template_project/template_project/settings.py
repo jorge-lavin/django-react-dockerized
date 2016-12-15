@@ -35,9 +35,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework',
-    'template_project',
-    'webpack-loader',
+    'webpack_loader',
 
+    'template_project',
     'base',
 
     'django.contrib.admin',

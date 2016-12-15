@@ -1,0 +1,8 @@
+# use base node image
+FROM node:argon
+
+WORKDIR /app/src/js/
+
+#RUN npm install
+
+CMD ["npm", "start"]

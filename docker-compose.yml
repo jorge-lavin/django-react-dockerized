@@ -64,10 +64,14 @@ services:
 
   # Node
   node:
-   image: node:7
-   hostname: node
-   volumes:
-     - ./template_project/static/:/usr/src/app
-   links:
-     - web
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    hostname: node
+    volumes:
+      - ./template_project/static/:/app/
+    links:
+      - web
+    ports:
+      - "3000:3000"
 
