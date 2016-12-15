@@ -15,6 +15,7 @@ import os
 from kombu import Exchange, Queue
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# This is the manage.py dir
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -35,6 +36,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'rest_framework',
     'template_project',
+    'webpack-loader',
+
+    'base',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,6 +130,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static', 'dist')
+)
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        # BUNDLE_DIR_NAME is relative to staticfiles_dirs?? FIXME
+        'BUNDLE_DIR_NAME': 'js/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'static', 'src', 'js', 'webpack-stats.json'),
+    }
+}
 
 REDIS_PORT = 6379
 REDIS_DB = 0
@@ -145,7 +160,8 @@ if not BROKER_URL:
         hostname=RABBIT_HOSTNAME,
         vhost=os.environ.get('RABBIT_ENV_VHOST', ''))
 
-# We don't want to have dead connections stored on rabbitmq, so we have to negotiate using heartbeats
+# We don't want to have dead connections stored on rabbitmq,
+# so we have to negotiate using heartbeats
 BROKER_HEARTBEAT = '?heartbeat=30'
 if not BROKER_URL.endswith(BROKER_HEARTBEAT):
     BROKER_URL += BROKER_HEARTBEAT

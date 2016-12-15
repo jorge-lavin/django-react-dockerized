@@ -1,0 +1,20 @@
+{
+  "name": "template_project",
+  "version": "1.0.0",
+  "description": "A Dockerized Django-Celery-React-Redux combo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "python",
+    "javascript",
+    "django",
+    "celery",
+    "react",
+    "redux"
+  ],
+  "author": "Jorge Lavín",
+  "license": "ISC"
+}
