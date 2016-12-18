@@ -25,12 +25,15 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'], }, // to transform JSX into JS
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] }, // to transform JSX into JS
     ],
   },
 
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
     extensions: ['', '.js', '.jsx'],
+  },
+  watchOptions: {
+    poll: true,
   },
 };

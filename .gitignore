@@ -1,6 +1,15 @@
+# Python compiled files
 __pycache__/
 *.pyc
 
+# Node modules folder
 node_modules/
+
+# Hot reload file
 webpack-stats.json
+
+# Log files
 *.log
+
+# Documentation build dir
+_build
