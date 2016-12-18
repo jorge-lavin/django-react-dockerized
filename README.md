@@ -29,6 +29,8 @@ The generation of the documentation is not yet implemented in the Docker applica
 sphinx-build -b html . ../static/dist/docs/
 ```
 
+The documentation should be avaiable at the `static/docs/index.html' url
+
 Stack
 ========
 

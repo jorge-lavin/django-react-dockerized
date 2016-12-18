@@ -1,8 +1,14 @@
 # use base node image
 FROM node:argon
 
+# Add package.json
+ADD package.json /app/src/js/package.json
+
+# Set working dir to /app/src/js
 WORKDIR /app/src/js/
 
-#RUN npm install
+# Install dependencies
+RUN npm install
 
+# Start node server
 CMD ["npm", "start"]
