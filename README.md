@@ -20,6 +20,28 @@ docker-compose build && docker-compose up
 Access `192.168.1.46:8000` and enjoy your high-productive `Django-React-Redux` dev environment.
 
 
+Dependencies management for webpack
+===================================
+You need to add dependencies manually and build the node container, so in order to know the version to install you can spawn a shell into the running container
+
+```
+docker run -it node:argon /bin/bash
+```
+
+query the npm registry to find the version
+
+```
+npm v <package_name> | grep version
+```
+
+and add the entry either at dependencies or devDependencies
+
+```
+'<pagckage_name>': '^<version_number>'
+```
+
+Lacking a better solution it is recomended to delete the intermediate node containers and build them from scratch, because package.json may not be updated. 
+
 Documentation
 =============
 
@@ -44,6 +66,7 @@ Stack
   * [`React Hot Loader`] (Experimental)
   * [`Redux`] with [`Redux devtools`]
 * [`Babel`] with [`ES2015`] support
+* [`SASS-Loader`] and [`Boostrap 4`]
 * [`Sphinx`] for project documentation
 
 
@@ -54,6 +77,7 @@ References
 
 
 [`Babel`]: https://babeljs.io/
+[`Bootstrap 4`]: https://v4-alpha.getbootstrap.com/
 [`Celery`]: http://www.celeryproject.com
 [`Django`]: https://www.djangoproject.com/
 [`Docker Compose`]: https://docs.docker.com/compose/
@@ -66,6 +90,6 @@ References
 [`Redis`]: https://redis.io/
 [`Redux devtools`]: https://github.com/gaearon/redux-devtools
 [`Redux`]: http://redux.js.org/
+[`SASS-Loader`]: https://github.com/jtangelder/sass-loader
 [`SQLAlchemy`]: http://www.sqlalchemy.org/
 [`Sphinx`]: http://www.sphinx-doc.org/en/1.5.1/
-

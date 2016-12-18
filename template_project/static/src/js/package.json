@@ -4,7 +4,7 @@
   "description": "A Dockerized Django-Celery-React-Redux combo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "docker",
@@ -27,10 +27,14 @@
     "react-hot-loader": "^1.3.1"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.4",
+    "css-loader": "^0.26.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.1",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-bundle-tracker": "^0.1.0",
     "webpack-dev-server": "^1.16.2"

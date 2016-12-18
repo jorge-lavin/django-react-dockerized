@@ -25,7 +25,15 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] }, // to transform JSX into JS
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ['react-hot', 'babel']
+      },
+      {
+        test: /\.scss$/,
+        loaders: [ 'style', 'css', 'sass' ]
+      },
     ],
   },
 

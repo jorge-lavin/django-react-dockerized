@@ -1,5 +1,7 @@
 import React from 'react';
 
-const App = () => <h1>React App</h1>;
+require('bootstrap/scss/bootstrap.scss');
+
+const App = () => <h1>React App, live testing</h1>;
 
 export default App;
