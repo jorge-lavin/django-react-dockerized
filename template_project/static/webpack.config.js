@@ -12,9 +12,9 @@ module.exports = {
   ],
 
   output: {
-    path: path.resolve('../../dist/js'),
+    path: path.resolve('dist'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://192.168.1.46:3000/static/js/',
+    publicPath: 'http://192.168.1.93:3000/static/',
   },
 
   plugins: [
@@ -30,15 +30,11 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel']
       },
-      {
-        test: /\.scss$/,
-        loaders: [ 'style', 'css', 'sass' ]
-      },
     ],
   },
 
   resolve: {
-    modulesDirectories: ['node_modules', 'bower_components'],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx'],
   },
   watchOptions: {

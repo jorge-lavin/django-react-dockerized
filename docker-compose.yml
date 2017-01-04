@@ -73,7 +73,7 @@ services:
       # docker-compose up will supercede the node_modules already installed so we mount it
       # as a volume
       #   http://dchua.com/2016/02/07/getting-npm-packages-to-be-installed-with-docker-compose/
-      - /app/src/js/node_modules/
+      - /app/node_modules/
     links:
       - web
     ports:

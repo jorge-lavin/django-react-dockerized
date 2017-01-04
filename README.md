@@ -1,11 +1,9 @@
 Dockerized `Django-React-Redux` app with `HMR`
 ==============================================
-
 This [`Docker Compose`] project provides a multi container [`Docker`] application with a modern full stack web development environment.
 
 Instructions
 ============
-
 At the time of writing you need to `run npm install` outside the `node` container, and the `node` container will have the `node_modules` folder mapped so the following may work:
 
 At host (assuming host's ip is `192.168.1.46`, if it is not the case, change `webpack.config.js` accordingly)
@@ -40,11 +38,10 @@ and add the entry either at dependencies or devDependencies
 '<pagckage_name>': '^<version_number>'
 ```
 
-Lacking a better solution it is recomended to delete the intermediate node containers and build them from scratch, because package.json may not be updated. 
+Lacking a better solution it is recomended to delete the intermediate node containers and build them from scratch, because package.json may not be updated.
 
 Documentation
 =============
-
 The generation of the documentation is not yet implemented in the Docker application. In order to build the sample documentation go to `docs` folder and run
 
 ```
@@ -56,7 +53,6 @@ The documentation should be avaiable at the `static/docs/index.html' url
 Stack
 ========
 
-
 * [`Django`] powered backend
   * [`SQLAlchemy`] ORM for [`PostgreSQL`] database
   * [`Celery`] for asynchronous tasks
@@ -66,7 +62,7 @@ Stack
   * [`React Hot Loader`] (Experimental)
   * [`Redux`] with [`Redux devtools`]
 * [`Babel`] with [`ES2015`] support
-* [`SASS-Loader`] and [`Boostrap 4`]
+* [`SASS-Loader`] and [`Bootstrap 4`]
 * [`Sphinx`] for project documentation
 
 

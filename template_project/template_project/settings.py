@@ -138,7 +138,7 @@ WEBPACK_LOADER = {
     'DEFAULT': {
         # BUNDLE_DIR_NAME is relative to staticfiles_dirs?? FIXME
         'BUNDLE_DIR_NAME': 'js/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'static', 'src', 'js', 'webpack-stats.json'),
+        'STATS_FILE': os.path.join(BASE_DIR, 'static', 'webpack-stats.json'),
     }
 }
 

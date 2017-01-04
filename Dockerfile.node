@@ -2,10 +2,10 @@
 FROM node:argon
 
 # Add package.json
-ADD package.json /app/src/js/package.json
+ADD package.json /app/package.json
 
-# Set working dir to /app/src/js
-WORKDIR /app/src/js/
+# Set working dir 
+WORKDIR /app
 
 # Install dependencies
 RUN npm install
