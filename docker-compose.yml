@@ -16,6 +16,8 @@ services:
   redis:
     image: redis:2.8.19
     hostname: redis
+    ports:
+      - "6379:6379"
 
   # RabbitMQ
   rabbit:
@@ -45,6 +47,7 @@ services:
       - rabbit
       - redis
     depends_on:
+      - redis
       - db
 
   # Celery worker
@@ -78,4 +81,3 @@ services:
       - web
     ports:
       - "3000:3000"
-

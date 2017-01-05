@@ -1,7 +1,20 @@
-celery==4.0
-django-webpack-loader==0.4.1
+# Django and Rest Framework
 django==1.9.8
 djangorestframework==3.3.1
-psycopg2==2.5.3
+
+# Celery
+celery==4.0
 redis==2.10.5
+
+# Database (PostgreSQL)
+psycopg2==2.5.3
+
+# Django-Channels
+asgi_redis==1.0.0
+channels==0.17.3
+
+# Hot Module Replacement with Django
+django-webpack-loader==0.4.1
+
+# Documentation
 sphinx==1.5.1

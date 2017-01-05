@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
 import os
 
 from kombu import Exchange, Queue
@@ -39,13 +38,14 @@ INSTALLED_APPS = [
 
     'template_project',
     'base',
-
+    'jobs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -201,3 +201,16 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERYD_HIJACK_ROOT_LOGGER = False
 CELERYD_PREFETCH_MULTIPLIER = 1
 CELERYD_MAX_TASKS_PER_CHILD = 1000
+
+
+# Django Channels configuration
+# Do we have now redis being both the backend and the "broker" for the channels?
+CHANNEL_LAYERS = {
+   "default": {
+       "BACKEND": "asgi_redis.RedisChannelLayer",  # use redis backend
+       "CONFIG": {
+           "hosts": [(os.environ.get('REDIS_URL', 'redis'), 6379)],  # set redis address
+       },
+       "ROUTING": "jobs.routing.channel_routing",  # load routing from our routing.py file
+   },
+}
