@@ -2,13 +2,20 @@
 FROM node:argon
 
 # Add package.json
-ADD package.json /app/package.json
+ADD template_project/static/package.json /app/package.json
 
-# Set working dir 
+# Set working dir
 WORKDIR /app
 
 # Install dependencies
 RUN npm install
+
+# Generate vendor bundle
+# It should be updated the file vendor/vendor.js and regenerated whenever
+# dependencies are added or removed
+ADD template_project/static/webpack.dll.js /app/webpack.dll.js
+
+RUN node_modules/.bin/webpack --config webpack.dll.js
 
 # Start node server
 CMD ["npm", "start"]

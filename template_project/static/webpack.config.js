@@ -14,13 +14,19 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://192.168.1.93:3000/static/',
+    publicPath: 'http://127.0.0.1:3000/static/',
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new BundleTracker({ filename: './webpack-stats.json' }),
+    new webpack.DllReferencePlugin({
+      // An absolute path of your application source code
+      context: path.join(__dirname, "src"),
+      // The path to the generated vendor-manifest file
+      manifest: require(path.join(__dirname, "./vendor/vendor-manifest.json"))
+    }),
   ],
 
   module: {

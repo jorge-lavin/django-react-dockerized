@@ -15,7 +15,7 @@ cd ../../../../
 docker-compose build && docker-compose up
 ```
 
-Access `192.168.1.46:8000` and enjoy your high-productive `Django-React-Redux` dev environment.
+Access `127.0.0.1:8000` and enjoy your high-productive `Django-React-Redux` dev environment.
 
 
 Dependencies management for webpack
@@ -62,7 +62,7 @@ Stack
   * [`React Hot Loader`] (Experimental)
   * [`Redux`] with [`Redux devtools`]
 * [`Babel`] with [`ES2015`] support
-* [`SASS-Loader`] and [`Bootstrap 4`]
+* [`Bootstrap`] components for [`React`]
 * [`Sphinx`] for project documentation
 
 
@@ -73,7 +73,6 @@ References
 
 
 [`Babel`]: https://babeljs.io/
-[`Bootstrap 4`]: https://v4-alpha.getbootstrap.com/
 [`Celery`]: http://www.celeryproject.com
 [`Django`]: https://www.djangoproject.com/
 [`Docker Compose`]: https://docs.docker.com/compose/
@@ -86,6 +85,6 @@ References
 [`Redis`]: https://redis.io/
 [`Redux devtools`]: https://github.com/gaearon/redux-devtools
 [`Redux`]: http://redux.js.org/
-[`SASS-Loader`]: https://github.com/jtangelder/sass-loader
 [`SQLAlchemy`]: http://www.sqlalchemy.org/
 [`Sphinx`]: http://www.sphinx-doc.org/en/1.5.1/
+
