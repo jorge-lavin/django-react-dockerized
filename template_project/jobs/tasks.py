@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 
 @app.task
-def sec3(job_id, reply_channel):
+def scoring(job_id, reply_channel):
     # time sleep represent some long running process
     time.sleep(3)
     # Change task status to completed

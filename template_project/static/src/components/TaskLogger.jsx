@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Input, Jumbotron } from 'react-bootstrap';
 
 class TaskMessage extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class TaskMessage extends React.Component {
     );
   }
 }
+
 
 class TaskLogger extends React.Component {
   constructor(props) {
@@ -59,13 +61,15 @@ class TaskLogger extends React.Component {
     } else {
       messages = [];
     }
-    
+
     return (
-      <div>
-       Messages:
-        <ul>
-          {messages}
-        </ul>
+      <div className="container">
+        <Jumbotron>
+         Messages:
+          <ul>
+            {messages}
+          </ul>
+        </Jumbotron>
       </div>
     );
   }
