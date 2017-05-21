@@ -6,6 +6,7 @@ cd template_project
 
 # prepare init migration
 su -m manager -c "python manage.py makemigrations template_project"
+su -m manager -c "python manage.py makemigrations jobs"
 
 # migrate db, so we have the latest db schema
 su -m manager -c "python manage.py migrate"

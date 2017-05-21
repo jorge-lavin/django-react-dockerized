@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './app';
 
-/* global document */
-
-ReactDOM.render(<App />, document.getElementById('react-app'));
-
-if (module.hot) {
-  module.hot.accept();
-}
+const reactRoot = window.document.getElementById("react-app");
+ReactDOM.render((
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+), reactRoot);

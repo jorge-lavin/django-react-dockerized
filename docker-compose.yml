@@ -31,17 +31,17 @@ services:
       - "15672:15672"  # here, we can access rabbitmq management plugin
 
   # Django web server
-  web:
+  django:
     build:
       context: .
-      dockerfile: Dockerfile
-    hostname: web
-    command: ./run_web.sh
+      dockerfile: Dockerfile.python
+    hostname: django
+    command: ./run_django.sh
     volumes:
       - .:/app  # mount current directory inside container
     ports:
       - "8000:8000"
-    # set up links so that web knows about db, rabbit and redis
+    # set up links so that django knows about db, rabbit and redis
     links:
       - db
       - rabbit
@@ -54,7 +54,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.python
     command: ./run_celery.sh
     volumes:
       - .:/app
@@ -62,8 +62,8 @@ services:
       - db
       - rabbit
       - redis
-    depends_on:
-      - rabbit
+#    depends_on:
+#      - rabbit
 
   # Node
   node:
@@ -78,6 +78,6 @@ services:
       #   http://dchua.com/2016/02/07/getting-npm-packages-to-be-installed-with-docker-compose/
       - /app/node_modules/
     links:
-      - web
+      - django
     ports:
       - "3000:3000"

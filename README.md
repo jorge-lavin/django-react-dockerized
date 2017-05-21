@@ -4,41 +4,22 @@ This [`Docker Compose`] project provides a multi container [`Docker`] applicatio
 
 Instructions
 ============
-At the time of writing you need to `run npm install` outside the `node` container, and the `node` container will have the `node_modules` folder mapped so the following may work:
-
-At host (assuming host's ip is `192.168.1.46`, if it is not the case, change `webpack.config.js` accordingly)
-
 ```
-cd template_project/static/src/js
-npm install
-cd ../../../../
 docker-compose build && docker-compose up
 ```
 
-Access `192.168.1.46:8000` and enjoy your high-productive `Django-React-Redux` dev environment.
+Access `localhost:8000` and enjoy your high-productive `Django-React-Redux` dev environment.
 
 
-Dependencies management for webpack
+Dependencies management with webpack
 ===================================
-You need to add dependencies manually and build the node container, so in order to know the version to install you can spawn a shell into the running container
+You need to spawn a shell into the running container
 
 ```
-docker run -it node:argon /bin/bash
+docker exec -it djangoreactdockerirez_node_1
 ```
 
-query the npm registry to find the version
-
-```
-npm v <package_name> | grep version
-```
-
-and add the entry either at dependencies or devDependencies
-
-```
-'<pagckage_name>': '^<version_number>'
-```
-
-Lacking a better solution it is recomended to delete the intermediate node containers and build them from scratch, because package.json may not be updated.
+and `npm install` the dependencies and run `update_package_json.sh` provided.
 
 Documentation
 =============

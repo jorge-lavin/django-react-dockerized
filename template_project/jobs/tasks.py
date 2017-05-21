@@ -7,7 +7,6 @@ from template_project.celeryconf import app
 from .models import Job
 from channels import Channel
 
-
 log = logging.getLogger(__name__)
 
 
@@ -29,6 +28,6 @@ def sec3(job_id, reply_channel):
                 "action": "completed",
                 "job_id": job.id,
                 "job_name": job.name,
-                "job_status": job.status,
+               "job_status": job.status,
             })
         })

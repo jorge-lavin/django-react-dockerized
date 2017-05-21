@@ -1,4 +1,5 @@
-* Remove hardcoded node server ip
+* Import bootstrap css instead of hardcoded cdn in template
+
 * Add testing
 * Add enviroment-dependent files
 * Check `os.environ` at settings has correct values
